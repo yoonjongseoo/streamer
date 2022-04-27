@@ -68,8 +68,6 @@ func (p Process) Spawn(path, URI string) *exec.Cmd {
 		"copy",
 		"-movflags",
 		"frag_keyframe+empty_moov",
-		"-vf",
-		"scale=1280:720",
 	}
 	if !p.audio {
 		processCommands = append(processCommands, "-an")
@@ -85,8 +83,6 @@ func (p Process) Spawn(path, URI string) *exec.Cmd {
 		"1",
 		"-hls_list_size",
 		"3",
-		"-vf",
-		"scale=1280:720",
 		"-hls_segment_filename",
 		fmt.Sprintf("%s/%%d.ts", path),
 		fmt.Sprintf("%s/index.m3u8", path),
